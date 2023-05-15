@@ -2,9 +2,13 @@
 
 The Smart Trolley is a shopping cart that can be used by a supermarket customer without the intervention of any store employees. The processes of adding the items to the trolley and making the payment is automated. The smart trolley is shown in figure 2.1
 
- ![image](https://github.com/DerickFernando51/SmartTrolley/assets/124335793/c82367bd-e2b2-46a6-b89d-833dab671d4d|width="10")
 
-Figure 2.1 Smart Trolley   
+ <p align="center"> 
+ <img src="https://github.com/DerickFernando51/SmartTrolley/assets/124335793/f59fcbbe-0ce5-4642-ba03-9951548ae597" width="500"> </p>
+ 
+ <p align="center">  Figure 2.1 Smart Trolley  </p> 
+
+
 
 When customers add items to the trolley, they must scan its barcode using the barcode scanner mounted near the handles of the trolley. If they want to remove any items they can press the remove button, scan the barcode of the product and remove it from the trolley. Once all products have been selected customers can press the end button and receive the total amount and instructions to make the payment.
 
