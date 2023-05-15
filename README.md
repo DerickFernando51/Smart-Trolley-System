@@ -2,7 +2,7 @@
 
 The Smart Trolley is a shopping cart that can be used by a supermarket customer without the intervention of any store employees. The processes of adding the items to the trolley and making the payment is automated. The smart trolley is shown in figure 1
 
-
+<br>
  <p align="center"> 
  <img src="https://github.com/DerickFernando51/SmartTrolley/assets/124335793/f59fcbbe-0ce5-4642-ba03-9951548ae597" width="500"> </p>
  
@@ -13,18 +13,15 @@ The Smart Trolley is a shopping cart that can be used by a supermarket customer 
 When customers add items to the trolley, they must scan its barcode using the barcode scanner mounted near the handles of the trolley. If they want to remove any items they can press the remove button, scan the barcode of the product and remove it from the trolley. Once all products have been selected customers can press the end button and receive the total amount and instructions to make the payment.
 
 Four load cells were connected to the four wheels of the trolley. These load cells recorded the weight of items added. This was done in order to prevent the theft of items. The weight of the load cells was compared against the listed weight of items. If any items are added to the cart without scanning its barcode the two weights would not be equal and the system would notify supermarket employees to inspect the trolley.
-
+ 
  <p align="center">
   <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/2a729c82-9386-49f4-b26a-f22e9185ffe8" width="800"></p>
-  <p align="center"> Figure 2 - Flow chart of Smart Trolley System   </p> 
-  
-  
-  
- 
-  
-   <p align="center">
-   <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/e72bb0f4-34d3-493b-af6e-af2f7479b5d7" width="800">
- </p>
+   <p align="center"> Figure 2 - Flow chart of Smart Trolley System   </p> 
+   <br><br><br><br><br>
+   
+ <p align="center"> 
+   <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/e72bb0f4-34d3-493b-af6e-af2f7479b5d7" width="700"></p>
+   
   <p align="center">   Figure 3 - Smart Trolley System architecture   </p> 
 
 
@@ -42,7 +39,7 @@ I was tasked with testing the existing features, adding new functionality to the
 
 
 
-2.1.1 Adding remove button 
+## 1.0 Adding remove button 
 
 The position and circuit diagram of the remove button is shown in figures 2.4 and 2.5
 
