@@ -4,51 +4,38 @@ The Smart Trolley is a shopping cart that can be used by a supermarket customer 
 
 <br>
  <p align="center"> 
- <img src="https://github.com/DerickFernando51/SmartTrolley/assets/124335793/f59fcbbe-0ce5-4642-ba03-9951548ae597" width="500"> </p>
- 
- <p align="center">  Figure 1 - Smart Trolley  </p> 
-
-
+ <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/7ca5dd26-c133-48dc-8858-35449b1499f4" width="500"> </p>
+ <br>
 
 When customers add items to the trolley, they must scan its barcode using the barcode scanner mounted near the handles of the trolley. If they want to remove any items they can press the remove button, scan the barcode of the product and remove it from the trolley. Once all products have been selected customers can press the end button and receive the total amount and instructions to make the payment.
 
 Four load cells were connected to the four wheels of the trolley. These load cells recorded the weight of items added. This was done in order to prevent the theft of items. The weight of the load cells was compared against the listed weight of items. If any items are added to the cart without scanning its barcode the two weights would not be equal and the system would notify supermarket employees to inspect the trolley.
  
  <p align="center">
-  <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/2a729c82-9386-49f4-b26a-f22e9185ffe8" width="800"></p>
+  <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/2a729c82-9386-49f4-b26a-f22e9185ffe8" width="750"></p>
    <p align="center"> Figure 2 - Flow chart of Smart Trolley System   </p> 
    <br><br><br><br><br>
    
  <p align="center"> 
-   <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/e72bb0f4-34d3-493b-af6e-af2f7479b5d7" width="700"></p>
+   <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/e72bb0f4-34d3-493b-af6e-af2f7479b5d7" width="550"></p>
    
-  <p align="center">   Figure 3 - Smart Trolley System architecture   </p> 
+  <p align="center">   Figure 3 - Smart Trolley System architecture  </p> 
+  
+  Figures 2 and 3 show the work flow and the architecture of the Smart Trolley system respectively.
+  <br>
 
-
-
-
-
- 
-
- 
-
-
-Figures 2 and 3 show the work flow and the architecture of the Smart Trolley system respectively.
-
-I was tasked with testing the existing features, adding new functionality to the system and developing the smart trolley mobile application. 
+I was tasked with testing the existing features, adding new functionality to the system and developing the smart trolley mobile application.
+<br><br>
 
 
 
 ## 1.0 Adding remove button 
 
-The position and circuit diagram of the remove button is shown in figures 2.4 and 2.5
-
- 
-Figure 2.4 Remove button position in Smart Trolley
-
-
- 
-Figure 2.5 Remove button circuit diagram
+The position and circuit diagram of the remove button is shown in figures 4 and 5
+<br>
+ <p align="center"> 
+  <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/8b7b3814-8be9-4703-858d-695e00b194c1" width="800"></p>
+  <br>
 
 •	When connecting the remove push button to the Smart Trolley system a pulldown resistor was used as shown. This is done to ensure that the wire is pulled to a logic level at the absence of an input and prevents the floating state of a pin.
 
@@ -58,9 +45,9 @@ Figure 2.5 Remove button circuit diagram
  
  
 
-Figure 2.6 Remove button code
+ 
 
-The code shown in figure 2.6 can be explained as follows:
+The code shown in figure 6 can be explained as follows:
 
 •	The remove button press is detected using an Arduino hardware interrupt. All the GPIO pins in the ESP32 microcontroller can be used as interrupts. Since the remove button is connected to pin 27 the interrupt is set to this pin.
 
