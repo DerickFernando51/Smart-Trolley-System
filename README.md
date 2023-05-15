@@ -34,59 +34,59 @@ I was tasked with testing the existing features, adding new functionality to the
 The position and circuit diagram of the remove button is shown in figures 4 and 5
 <br>
  <p align="center"> 
-  <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/8b7b3814-8be9-4703-858d-695e00b194c1" width="800"></p>
+  <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/8b7b3814-8be9-4703-858d-695e00b194c1" width="750"></p>
   <br>
 
 •	When connecting the remove push button to the Smart Trolley system a pulldown resistor was used as shown. This is done to ensure that the wire is pulled to a logic level at the absence of an input and prevents the floating state of a pin.
 
-•	The pulldown resistor was connected between the ground terminal of the push button and the and the ground pin of the microcontroller. The other terminal of the push button was connected to GPIO pin 27 of the ESP 32.
+•	The pulldown resistor was connected between the ground terminal of the push button and the and the ground pin of the microcontroller. The other terminal of the push button was connected to GPIO pin 27 of the ESP 32 
+<br><br>
+     
+     
+     int remobuttonState=0;// Initial state of remove button
+     #define REMO_BUTTON_PIN 27 //Remove button is connected to pin 27 of ESP32
 
+    void setup() {
+      attachInterrupt(digitalPinToInterrupt(REMO_BUTTON_PIN), ISR1,CHANGE);
+          //External interrupt triggered when remove button is pressed
+      pinMode(REMO_BUTTON_PIN, INPUT_PULLUP)// Set remove button to input mode
+      Serial.begin(115200);//Set Arduino serial monitor baud rate
+      Serial2.begin(9600); // Set barcode serial monitor baud rate
+    }
 
- 
- 
+    void loop() {
+      Serial.println("Press remove button to remove items");
+      delay(5000);  
+      if(remobuttonState==1){
+        Remove_Item();
+      }
+    }
 
- 
+    void Remove_Item(){//This function executes if remove button state is equal to 1
+      Serial.println("Scan the item to remove");
+      while(Serial2.available(==0)){}//Wait for barcode to be scanned
+      Code = Serial2.readString();//Assign scanned barcode to variable
+      Serial.println(Code); //Display barcode in serial monitor
+      remobuttonState=0;  //Reset remove button state
+    }
 
-The code shown in figure 6 can be explained as follows:
+    void ISR1(){//This function executes when the remove button is pressed
+     remobuttonState=1;
+    }
 
+The code shown above can be explained as follows:
+<br><br>
 •	The remove button press is detected using an Arduino hardware interrupt. All the GPIO pins in the ESP32 microcontroller can be used as interrupts. Since the remove button is connected to pin 27 the interrupt is set to this pin.
 
 •	The ISR (interrupt service routine) is the function that is called when the interrupt is triggered. Inside the ISR the state of the remove button is set to 1. The Remove_Item() function is executed if the remove button state is equal to 1.
 
 •	Inside the remove button function the user is prompted to scan the barcode of the item to be removed. Then the scanned barcode is displayed in the Arduino serial monitor. Finally, the remove button state is reset to 0.
+<br><br>
 
-I soldered the push button connections and constructed the circuit as shown in figure 2.5. Then, I tested the remove button code and integrated it to the smart trolley system final code after confirming its accuracy.
+I soldered the push button connections and constructed the circuit. Then, I tested the remove button code and integrated it to the smart trolley system final code after confirming its accuracy.
+<br><br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2.1.2 Adding end button
+## 2.0 Adding end button
 
 The position and circuit diagram of the end button is shown in figures 2.7 and 2.8
 
