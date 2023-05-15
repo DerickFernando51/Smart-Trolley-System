@@ -13,13 +13,13 @@ Four load cells were connected to the four wheels of the trolley. These load cel
  
  <p align="center">
   <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/2a729c82-9386-49f4-b26a-f22e9185ffe8" width="750"></p>
-   <p align="center"> Figure 2 - Flow chart of Smart Trolley System   </p> 
+   <p align="center"> Figure 2: Flow chart of Smart Trolley System   </p> 
    <br><br><br><br><br>
    
  <p align="center"> 
    <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/e72bb0f4-34d3-493b-af6e-af2f7479b5d7" width="550"></p>
    
-  <p align="center">   Figure 3 - Smart Trolley System architecture  </p> 
+  <p align="center">   Figure 3: Smart Trolley System architecture  </p> 
   
   Figures 2 and 3 show the work flow and the architecture of the Smart Trolley system respectively.
   <br>
@@ -42,17 +42,16 @@ The position and circuit diagram of the remove button is shown in figures 4 and 
 •	The pulldown resistor was connected between the ground terminal of the push button and the and the ground pin of the microcontroller. The other terminal of the push button was connected to GPIO pin 27 of the ESP 32 
 <br><br>
      
-     
-     int remobuttonState=0;// Initial state of remove button
-     #define REMO_BUTTON_PIN 27 //Remove button is connected to pin 27 of ESP32
+    int remobuttonState=0;// Initial state of remove button
+    #define REMO_BUTTON_PIN 27 //Remove button is connected to pin 27 of ESP32
 
     void setup() {
-      attachInterrupt(digitalPinToInterrupt(REMO_BUTTON_PIN), ISR1,CHANGE);
-          //External interrupt triggered when remove button is pressed
-      pinMode(REMO_BUTTON_PIN, INPUT_PULLUP)// Set remove button to input mode
-      Serial.begin(115200);//Set Arduino serial monitor baud rate
-      Serial2.begin(9600); // Set barcode serial monitor baud rate
-    }
+       attachInterrupt(digitalPinToInterrupt(REMO_BUTTON_PIN), ISR1,CHANGE);
+         //External interrupt triggered when remove button is pressed
+       pinMode(REMO_BUTTON_PIN, INPUT_PULLUP)// Set remove button to input mode
+       Serial.begin(115200);//Set Arduino serial monitor baud rate
+       Serial2.begin(9600); // Set barcode serial monitor baud rate
+      }
 
     void loop() {
       Serial.println("Press remove button to remove items");
@@ -88,29 +87,57 @@ I soldered the push button connections and constructed the circuit. Then, I test
 
 ## 2.0 Adding end button
 
-The position and circuit diagram of the end button is shown in figures 2.7 and 2.8
+The position and circuit diagram of the end button is shown in figures 6 and 7
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/a722f40d-73e1-46b9-9dd4-7c5903751b2f" width ="750"></P>
+
+    int endbuttonState=0;// Initial state of end button
+    #define END_BUTTON_PIN 5 //End button is connected to pin 27 of ESP32
+    String total; //Variable to track total amount
+
+    void setup() {
+      attachInterrupt(digitalPinToInterrupt(END_BUTTON_PIN), ISR2,CHANGE);
+          //External interrupt triggered when end button is pressed
+      pinMode(END_BUTTON_PIN, INPUT_PULLUP)// Set end button to input mode
+      Serial.begin(115200);//Set Arduino serial monitor baud rate
+      Serial2.begin(9600); // Set barcode serial monitor baud rate
+    }
+
+    void loop() {
+      Serial.println("Press end button if you are finished purchasing");
+      delay(5000);  
+      if(endbuttonState==1){
+        End_purchasing();
+      }
+    }
+
+    void  End_purchasing(){//This function executes if end button state is equal to 1
+     remobuttonState=1;
+     Serial.println("Total amount: Rs. ");
+     Serial.println(total);
+    }
+
+    void ISR2(){//This function executes when the end button is pressed
+      endbuttonState = 1;
+    }
+
 
  
-Figure 2.7 End button position in Smart Trolley
-
-
  
-Figure 2.8 End button circuit diagram
- 
- 
-Figure 2.9 End button code
 
-The code shown in figure 2.9 can be explained as follows:
+The code shown above can be explained as follows:
 
-•	The end button press is detected using an Arduino hardware interrupt. All the GPIO pins in the ESP32 microcontroller can be used as interrupts. Since the remove button is connected to pin 5 the interrupt is set to this pin.
+  •	The end button press is detected using an Arduino hardware interrupt. All the GPIO pins in the ESP32 microcontroller can be used as interrupts. Since the remove button     is connected to pin 5 the interrupt is set to this pin.
 
-•	The ISR (interrupt service routine) is the function that is called when the interrupt is triggered. Inside the ISR the state of the remove button is set to 1. The End_purchasing() function is executed if the remove button state is equal to 1.
+  •	The ISR (interrupt service routine) is the function that is called when the interrupt is triggered. Inside the ISR the state of the remove button is set to 1. The           End_purchasing() function is executed if the remove button state is equal to 1.
 
-•	Inside the end button function the total amount is displayed in the Arduino serial monitor.  
+  •	Inside the end button function the total amount is displayed in the Arduino serial monitor.  
 
 
 I soldered the end push button connections and constructed the circuit. Then, I tested the end button code and integrated it to the smart trolley system final code after confirming that it functions as expected.
-2.1.3 Testing load cells
+<br>
+
+## 3.0 Testing load cells
 
 Four 100kg CZL601 load cells shown in figure 2.10 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
 
