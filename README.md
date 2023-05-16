@@ -1,6 +1,6 @@
 # Development of Smart Trolley for Retail Project 
 
-The Smart Trolley is a shopping cart that can be used by a supermarket customer without the intervention of any store employees. The processes of adding the items to the trolley and making the payment is automated. The smart trolley is shown in figure 1
+The Smart Trolley is a shopping cart that can be used by a supermarket customer without the intervention of any store employees. The processes of adding the items to the trolley and making the payment is automated. The smart trolley is shown in figure 1.
 
 <br>
  <p align="center"> 
@@ -181,7 +181,7 @@ For this proposal to be practically implemented RFID tags would need to be paste
 
 <br><br>
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/c139e495-c1b1-42eb-90fd-ad42d2e88524" width ="700"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/c139e495-c1b1-42eb-90fd-ad42d2e88524" width ="650"></P>
 <br>
 
  
@@ -213,6 +213,18 @@ This proposal was rejected due to the above disadvantage listed. A decision was 
 
 ## 5.0 Sending barcodes to Firebase database
 
+The barcodes scanned by the Smart Trolley System were stored in a Firebase real time database so that they can be accessed by the mobile application. The following should be defined in order for the MCU to gain access to the Firebase database:
+
+• The API key
+
+• URL of the real time database
+
+• Wi-fi network credentials
+
+• Email and password of an authorized user
+<br><br><br>
+The Arduino code for sending scanned barcodes to the Firebase database is given below. The initial part of the code involves defining the above mentioned parameters, assignning the parameters, connecting to Wi-Fi and setting the baud rate of the serial monitor. <br>
+<br>
 
     #include <WiFi.h>
     #include <Firebase_ESP_Client.h>
@@ -275,45 +287,65 @@ This proposal was rejected due to the above disadvantage listed. A decision was 
 
 	void loop(){
   		while (Serial2.available() > 0) { //Wait for barcode to be scanned
-    	Code = Serial2.readString(); //Assign scanned barcode to variable
-    	Serial.println(Code); //Print barcode in serial monitor
+    		Code = Serial2.readString(); //Assign scanned barcode to variable
+    		Serial.println(Code); //Print barcode in serial monitor
 
-		databasePath = "/Smart_Cart_Wishlist/"; //Name of firbase database path
-    	parentPath= databasePath + String(i);  //Index of database path
-    	i=i+1; //Update index
-    	json.set(itemPath.c_str(), String(Code)); //Send barcode to selected index
-    	Serial.printf("Set json... %s\n", Firebase.RTDB.setJSON(&fbdo, parentPath.c_str(), &json) ? "ok" : fbdo.errorReason().c_str());
-        		//Print confirmation of sending data to firebase, or error message if unsuccessful
+			databasePath = "/Smart_Cart_Wishlist/"; //Name of firbase database path
+    		parentPath= databasePath + String(i);  //Index of database path
+    		i=i+1; //Increment index
+    		json.set(itemPath.c_str(), String(Code)); //Send barcode to selected index
+    		Serial.printf("Set json... %s\n", Firebase.RTDB.setJSON(&fbdo, parentPath.c_str(), &json) ? "ok" : fbdo.errorReason().c_str());
+        			//Print confirmation of sending data to firebase, or error message if unsuccessful
   		}  
 	}
 	
 <br><br>
+The main loop of the above code can be explained as follows:
+
+• The index variable (i) was used to specify the child node that the barcode should be saved to. 
+
+• After an item was scanned the index variable was incremented.
+
+• The json.set function saves the barcode in the specified child node. 
+<br><br>
+Figure 14 shows how the barcode data was saved in the Firebase database.
+
+<br>
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/46760c12-46ca-4e9d-8c9a-b829f82b32ca" width ="600"></P>
+<br><br><br>
+
+
+ 
+
 
 ## 6.0 Smart trolley mobile app
 
-I created the Smart Trolley mobile application. This was done in Android studio IDE (Integrated development environment) using Kotlin programming language. Figure 2.17 details the architecture of the Smart Trolley system.
+I created the Smart Trolley mobile application. This was done in Android studio IDE (Integrated development environment) using Kotlin programming language. Figure 15 details the architecture of the Smart Trolley system.
 
- 
-Figure 2.17 Smart trolley system architecture
-
-Firebase was used to create a real time database and the Arduino code was modified to store all scanned barcodes in this database. Figure 2.18 shows how the barcode data was saved in the Firebase database.
-
- 
-Figure 2.18 Barcode data stored in Firebase database
- 
-XML (Extensible Markup Language) was used to define the UI layout of this application. The layout of the main activity page is shown in figure 2.19 The android studio application was linked to the Firebase database and showed the stored data in real time using recycler view.
-
-
+<br>
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/6e45a99d-deef-4770-bc64-c13b9841dbd6" width ="600"></P>
+<br><br>
+  
  
 
-Figure 2.19 Main activity page of Smart Trolley mobile app
+XML (Extensible Markup Language) was used to define the UI layout of this application. The layout of the main activity page is shown in figure 16. The android studio application was linked to the Firebase database and showed the stored data in real time using recycler view.
 
+<br>
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/cb360607-adaa-440d-aca0-94df10926b67" width ="450"></P>
+<br><br><br>
 
-The QR code shown in figure 2.20 was generated and the mobile application could be opened by scanning this code. The intention was to paste this on the Smart Trolley allowing customers to easily open the app. The necessary changes were made to the manifest file of the Smart Trolley application to allow the app to be opened by scanning the QR code.
+  
+The QR code shown in figure 17 was generated and the mobile application could be opened by scanning this code. The intention was to paste this on the Smart Trolley allowing customers to easily open the app by scanning the code. Alterations were made to the manifest file of the Smart Trolley application to allow the app to be opened by scanning the QR code.
+
+<br>
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/7e9233f7-1185-47a2-942d-509de00ec612" width ="475"></P>
+<br><br><br>
 
  
-
-Figure 2.20 QR code generated to open Smart Trolley mobile app
 
 
 
