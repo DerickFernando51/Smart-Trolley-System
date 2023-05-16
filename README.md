@@ -139,75 +139,79 @@ I soldered the end push button connections and constructed the circuit. Then, I 
 
 ## 3.0 Testing load cells
 
-Four 100kg CZL601 load cells shown in figure 2.10 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
-
+Four 100kg CZL601 load cells shown in figure 8 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/0f605144-e8ff-44d5-ba49-dec8a8353927" width ="375"></P>
+<br><br>
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/d6f52898-5271-4356-aba3-afdd10dbdef4" width ="600"></P>
+<br>
  
-Figure 2.10 CZL601 load cell
-
-
-Figure 2.11 shows the parts of the setup required to test load cells and figure 2.12 shows the setup created in the lab for this purpose.
-
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/b3136a2c-42ad-4855-99dd-62f10b24319f" width ="650"></P>
+<br>
  
-Figure 2.11 Mounting a load cell apparatus
+Figure 9 shows the parts of the setup required to test load cells and figure 10 shows the setup created in the lab for this purpose.
 
+<br>
+The calibration curve was plotted to verify the accuracy of the load cells. Known weights in the range of 100g – 38 kg were used to obtain the required data points. Firstly, the actual weight was measured using a scale and then the weight measured by the load cells was obtained. The data points and the calibration curve are shown in table 1 and figure 11 respectively. The calibration factor is obtained by dividing the measured weight by the applied weight.
 
-
-   
-Figure 2.12 Load cell mounting setup 
-
-
-
-The calibration curve was plotted to verify the accuracy of the load cells. Known weights in the range of 100g – 38 kg were used to obtain the required data points. Firstly, the actual weight was measured using a scale and then the weight measured by the load cells was obtained. The data points and the calibration curve are shown in table 2.1 and figure 2.13 respectively. The calibration factor is obtained by dividing the measured weight by the applied weight.
-
-
-Table 2.1 Load cell calibration curve data points
-
-Applied weight (g)	Measured weight (g)
-[Trolley and known weight]	Calibration factor
-340	1873	5.508
-290	1596	5.503
-1965	10820	5.506
-138	760	5.507
-1220	6722	5.509
-38930	212600	5.447
-12130	66961	5.520
-5150	28175	5.471
-
+<br><br>
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/003f8751-0200-456c-8f42-92c0aa30cb69" width ="700"></P>
+<br>
  
-Figure 2.14 Load cell calibration curve
 
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/ab190c18-9e50-469c-9379-7a681f746739" width ="700"></P>
+<br>
 
- 
-Figure 2.15 Typical calibration curve for load vs. output
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/46827fd8-4e65-4e4c-a6a1-737b2ba4d97a" width ="500"></P>
+<br>
 
-Figure 2.15 shows the calibration curve given in CZL601 load cell datasheet. These load cells had an error of ±0.023% of full scale. The tests performed confirmed that the error in the weight measurement of products was within this range.
+Figure 12 shows the calibration curve given in CZL601 load cell datasheet. These load cells had an error of ±0.023% of full scale. The tests performed confirmed that the error in the weight measurement of products was within this range.
+<br><br>
 
-2.1.4 RFID proposal
+## 4.0 RFID proposal
 
 The smart trolley system prevents theft by calculating the total weight of products and comparing it with the listed weight. I proposed using RFID tags instead of load cells for this purpose.
 
-For this proposal to be practically implemented RFID tags would need to be pasted on all the supermarket products. Then, the barcode scanner is replaced by a RFID scanner. The system architecture of the RFID proposal is detailed in figure 2.16
+For this proposal to be practically implemented RFID tags would need to be pasted on all the supermarket products. Then, the barcode scanner is replaced by a RFID scanner. The system architecture of the RFID proposal is detailed in figure 13.
 
+<br><br>
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/c139e495-c1b1-42eb-90fd-ad42d2e88524" width ="700"></P>
+<br>
 
  
-Figure 2.16 Proposed system architecture
+**Drawbacks of using load cells:**
 
-Drawbacks of using load cells:
 •	Accuracy is not enough for light weight products. CZL601 load cell belong to accuracy class C3 (error of ±0.023% of full scale)
+
 •	Products with similar weight, but different prices can be stolen without being detected by the system
+<br><br>
 
-Advantages of using RFID tags:
+**Advantages of using RFID tags:**
+
 •	RFID scanner is a faster scanner than a barcode scanner
+
 •	Can scan multiple items at once
+
 •	Does not require direct line of sight. Uses NFC (Near Field Technology)
+
 •	Will reduce the changes need to be made to the product as load cells will not need to be fixed to the four legs.
+<br><br>
 
-Disadvantage of using RFID tags:
+**Disadvantage of using RFID tags:**
+
 •	RFID tags need to be pasted on all products
-
+<br><br>
 
 This proposal was rejected due to the above disadvantage listed. A decision was made to use a camera and identify products using computer vision and machine learning principles.
-2.1.5 Smart trolley mobile app
+<br><br>
+
+## 5.0 Smart trolley mobile app
 
 I created the Smart Trolley mobile application. This was done in Android studio IDE (Integrated development environment) using Kotlin programming language. Figure 2.17 details the architecture of the Smart Trolley system.
 
