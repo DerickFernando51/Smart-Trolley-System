@@ -211,7 +211,85 @@ For this proposal to be practically implemented RFID tags would need to be paste
 This proposal was rejected due to the above disadvantage listed. A decision was made to use a camera and identify products using computer vision and machine learning principles.
 <br><br>
 
-## 5.0 Smart trolley mobile app
+## 5.0 Sending barcodes to Firebase database
+
+
+    #include <WiFi.h>
+    #include <Firebase_ESP_Client.h>
+    #include <Wire.h> 
+	
+	// Insert your network credentials
+	#define WIFI_SSID "  "
+	#define WIFI_PASSWORD "  "
+
+	// Insert Firebase project API Key
+	#define API_KEY " "
+
+	// Insert Authorized Email and Corresponding Password
+	#define USER_EMAIL " "
+	#define USER_PASSWORD " "
+
+	// Insert RTDB URLefine the RTDB URL
+	#define DATABASE_URL " "
+
+	// Define Firebase objects
+	FirebaseData fbdo;
+	FirebaseAuth auth;
+	FirebaseConfig config;
+
+ 	// Database main path (to be updated in setup with the user UID)
+	String databasePath;
+	String parentPath;
+	
+	// Parent Node (to be updated in every loop)
+	FirebaseJson json;
+	
+	// Firebase index variable
+	int i=0;
+ 
+	// Initialize WiFi
+	void initWiFi() {
+  	WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  	Serial.print("Connecting to WiFi ..");
+  	while (WiFi.status() != WL_CONNECTED) {
+    	Serial.print('.');
+    	delay(1000);
+  	}
+  	Serial.println(WiFi.localIP());
+  	Serial.println();
+	}
+
+ 	void setup(){
+  	  Serial.begin(115200);
+	  
+	  // Assign the api key (required)
+  	  config.api_key = API_KEY;
+
+  	  // Assign the user sign in credentials
+  	  auth.user.email = USER_EMAIL;
+  	  auth.user.password = USER_PASSWORD;
+
+  	  // Assign the RTDB URL (required)
+  	  config.database_url = DATABASE_URL; 
+	 }
+
+	void loop(){
+  		while (Serial2.available() > 0) { //Wait for barcode to be scanned
+    	Code = Serial2.readString(); //Assign scanned barcode to variable
+    	Serial.println(Code); //Print barcode in serial monitor
+
+		databasePath = "/Smart_Cart_Wishlist/"; //Name of firbase database path
+    	parentPath= databasePath + String(i);  //Index of database path
+    	i=i+1; //Update index
+    	json.set(itemPath.c_str(), String(Code)); //Send barcode to selected index
+    	Serial.printf("Set json... %s\n", Firebase.RTDB.setJSON(&fbdo, parentPath.c_str(), &json) ? "ok" : fbdo.errorReason().c_str());
+        		//Print confirmation of sending data to firebase, or error message if unsuccessful
+  		}  
+	}
+	
+<br><br>
+
+## 6.0 Smart trolley mobile app
 
 I created the Smart Trolley mobile application. This was done in Android studio IDE (Integrated development environment) using Kotlin programming language. Figure 2.17 details the architecture of the Smart Trolley system.
 
