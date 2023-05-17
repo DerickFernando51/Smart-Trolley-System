@@ -157,20 +157,22 @@ I soldered the end push button connections and constructed the circuit. Then, I 
 
 Four 100kg CZL601 load cells shown in figure 9 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/0f605144-e8ff-44d5-ba49-dec8a8353927" width ="375"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/4dcbd8b5-5f11-4d8d-8c09-5a1406dd32f7" width ="325"></P>
 <br><br>
-<p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/d6f52898-5271-4356-aba3-afdd10dbdef4" width ="600"></P>
-<br>
+ 
  
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/b3136a2c-42ad-4855-99dd-62f10b24319f" width ="650"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/8075ef65-a0e0-46ca-8d7b-349764c9af18" width ="550"></P>
+<br>
+  
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/23fcfd1d-241f-4b79-b598-013889e7a85c" width ="750"></P>
 <br>
  
-Figure 9 shows the parts of the setup required to test load cells and figure 10 shows the setup created in the lab for this purpose.
+Figure 10 shows the parts of the setup required to test load cells and figure 11 shows the setup created in the lab for this purpose.
 
 <br>
-The calibration curve was plotted to verify the accuracy of the load cells. Known weights in the range of 100g – 38 kg were used to obtain the required data points. Firstly, the actual weight was measured using a scale and then the weight measured by the load cells was obtained. The data points and the calibration curve are shown in table 1 and figure 11 respectively. The calibration factor is obtained by dividing the measured weight by the applied weight.
+The calibration curve was plotted to verify the accuracy of the load cells. Known weights in the range of 100g – 38 kg were used to obtain the required data points. Firstly, the actual weight was measured using a scale and then the weight measured by the load cells was obtained. The data points and the calibration curve are shown in table 1 and graph 1 respectively. The calibration factor is obtained by dividing the measured weight by the applied weight.
 
 <br><br>
 <p align = "center">
@@ -179,14 +181,14 @@ The calibration curve was plotted to verify the accuracy of the load cells. Know
  
 
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/ab190c18-9e50-469c-9379-7a681f746739" width ="700"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/6ef4978c-fc4d-4926-a971-246aa729bc26" width ="700"></P>
 <br>
-
+ 
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/46827fd8-4e65-4e4c-a6a1-737b2ba4d97a" width ="500"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/741ca23e-baab-4b08-813c-6679173b0898" width ="600"></P>
 <br>
 
-Figure 12 shows the calibration curve given in CZL601 load cell datasheet. These load cells had an error of ±0.023% of full scale. The tests performed confirmed that the error in the weight measurement of products was within this range.
+Graph 2 shows the calibration curve given in CZL601 load cell datasheet. These load cells had an error of ±0.023% of full scale. The tests performed confirmed that the error in the weight measurement of products was within this range.
 <br><br>
 
 ## 4.0 RFID proposal
