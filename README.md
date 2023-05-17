@@ -10,7 +10,11 @@ The Smart Trolley is a shopping cart that can be used by a supermarket customer 
 When customers add items to the trolley, they must scan its barcode using the barcode scanner mounted near the handles of the trolley. If they want to remove any items they can press the remove button, scan the barcode of the product and remove it from the trolley. Once all products have been selected customers can press the end button and receive the total amount and instructions to make the payment.
 
 Four load cells were connected to the four wheels of the trolley. These load cells recorded the weight of items added. This was done in order to prevent the theft of items. The weight of the load cells was compared against the listed weight of items. If any items are added to the cart without scanning its barcode the two weights would not be equal and the system would notify supermarket employees to inspect the trolley.
- 
+<br>
+
+Figures 2 and 3 shown below detail the work flow and the circuit design of the Smart Trolley system respectively.
+
+<br> 
  <p align="center">
   <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/2a729c82-9386-49f4-b26a-f22e9185ffe8" width="750"></p>
    <p align="center"> Figure 2: Flow chart of Smart Trolley System   </p> 
@@ -19,10 +23,18 @@ Four load cells were connected to the four wheels of the trolley. These load cel
  <p align="center"> 
    <img src="https://github.com/DerickFernando51/Smart-Trolley/assets/124335793/e72bb0f4-34d3-493b-af6e-af2f7479b5d7" width="550"></p>
    
-  <p align="center">   Figure 3: Smart Trolley System architecture  </p> 
+  <p align="center">   Figure 3: Smart Trolley System circuit design  </p> 
   
-  Figures 2 and 3 show the work flow and the architecture of the Smart Trolley system respectively.
+  
+  
   <br>
+   <p align="center"> 
+   <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/24e1088f-3a92-4e3a-8c30-2722191493d9 " width="850"></p>  
+ <br>
+ 
+
+Figure 4 and 5 show the enclosure box of the Smart Trolley System prototype.
+<br>
 
 I was tasked with testing the existing features, adding new functionality to the system and developing the smart trolley mobile application.
 <br><br>
@@ -31,11 +43,13 @@ I was tasked with testing the existing features, adding new functionality to the
 
 ## 1.0 Adding remove button 
 
-The position and circuit diagram of the remove button is shown in figures 4 and 5
+The position and circuit diagram of the remove button is shown in figures 6 and 7
 <br>
  <p align="center"> 
-  <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/8b7b3814-8be9-4703-858d-695e00b194c1" width="750"></p>
-  <br>
+  <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/d3a9f02c-3108-4452-b808-eb6e05ea5070" width="800"></p>
+  <br> 
+
+
 
 •	When connecting the remove push button to the Smart Trolley system a pulldown resistor was used as shown. This is done to ensure that the wire is pulled to a logic level at the absence of an input and prevents the floating state of a pin.
 
@@ -87,9 +101,11 @@ I soldered the push button connections and constructed the circuit. Then, I test
 
 ## 2.0 Adding end button
 
-The position and circuit diagram of the end button is shown in figures 6 and 7
+The position and circuit diagram of the end button is shown in figures 7 and 8
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/a722f40d-73e1-46b9-9dd4-7c5903751b2f" width ="750"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/27b55d1c-74e0-4403-8127-eebd46de8ad0" width ="800"></P>
+ 
+
 
     int endbuttonState=0;// Initial state of end button
     #define END_BUTTON_PIN 5 //End button is connected to pin 27 of ESP32
@@ -139,7 +155,7 @@ I soldered the end push button connections and constructed the circuit. Then, I 
 
 ## 3.0 Testing load cells
 
-Four 100kg CZL601 load cells shown in figure 8 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
+Four 100kg CZL601 load cells shown in figure 9 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
 <p align = "center">
 <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/0f605144-e8ff-44d5-ba49-dec8a8353927" width ="375"></P>
 <br><br>
