@@ -46,10 +46,9 @@ I was tasked with testing the existing features, adding new functionality to the
 The position and circuit diagram of the remove button is shown in figures 6 and 7
 <br>
  <p align="center"> 
-  <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/d3a9f02c-3108-4452-b808-eb6e05ea5070" width="800"></p>
+  <img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/01a4b15f-7352-479a-9b9a-26c3d6ddabde" width="800"></p>
   <br> 
-
-
+   
 
 •	When connecting the remove push button to the Smart Trolley system a pulldown resistor was used as shown. This is done to ensure that the wire is pulled to a logic level at the absence of an input and prevents the floating state of a pin.
 
@@ -101,9 +100,10 @@ I soldered the push button connections and constructed the circuit. Then, I test
 
 ## 2.0 Adding end button
 
-The position and circuit diagram of the end button is shown in figures 7 and 8
+The position and circuit diagram of the end button is shown in figures 8 and 9
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/27b55d1c-74e0-4403-8127-eebd46de8ad0" width ="800"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/f4ef7a14-2ed7-4147-b90d-9d450be8d865" width ="800"></P>
+ 
  
 
 
@@ -155,21 +155,22 @@ I soldered the end push button connections and constructed the circuit. Then, I 
 
 ## 3.0 Testing load cells
 
-Four 100kg CZL601 load cells shown in figure 9 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
+Four 100kg CZL601 load cells shown in figure 10 were used for the purpose of preventing theft in this system. I was instructed to comprehensively test these load cells and determine whether the project could be progressed using this weight sensor and if not to propose a different sensor/method for this process.
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/4dcbd8b5-5f11-4d8d-8c09-5a1406dd32f7" width ="325"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/4c71703a-cd18-44d1-9322-ad50e0e73023" width ="375"></P>
 <br><br>
- 
- 
-<p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/8075ef65-a0e0-46ca-8d7b-349764c9af18" width ="550"></P>
-<br>
   
 <p align = "center">
-<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/23fcfd1d-241f-4b79-b598-013889e7a85c" width ="750"></P>
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/dd258d82-69da-41d4-91ac-520576e98c94" width ="550"></P>
 <br>
  
-Figure 10 shows the parts of the setup required to test load cells and figure 11 shows the setup created in the lab for this purpose.
+  
+<p align = "center">
+<img src="https://github.com/DerickFernando51/Smart-Trolley-System/assets/124335793/1fbbfe1e-f755-4844-be84-86bf6bdaa16e" width ="800"></P>
+<br>
+ 
+
+Figure 11 shows the parts of the setup required to test load cells and figure 12 shows the setup created in the lab for this purpose.
 
 <br>
 The calibration curve was plotted to verify the accuracy of the load cells. Known weights in the range of 100g – 38 kg were used to obtain the required data points. Firstly, the actual weight was measured using a scale and then the weight measured by the load cells was obtained. The data points and the calibration curve are shown in table 1 and graph 1 respectively. The calibration factor is obtained by dividing the measured weight by the applied weight.
